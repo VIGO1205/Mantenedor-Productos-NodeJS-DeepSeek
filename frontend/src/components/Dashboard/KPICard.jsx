@@ -2,20 +2,22 @@ import React from 'react';
 
 const KPICard = ({ title, value, icon: Icon, color = 'primary' }) => { 
   const colors = { 
-    primary: 'bg-blue-50 text-blue-600', 
-    success: 'bg-green-50 text-green-600', 
-    warning: 'bg-yellow-50 text-yellow-600', 
-    danger: 'bg-red-50 text-red-600' 
+    primary: 'bg-blue-50 text-blue-600 border-blue-100', 
+    success: 'bg-emerald-50 text-emerald-600 border-emerald-100', 
+    warning: 'bg-amber-50 text-amber-600 border-amber-100', 
+    danger: 'bg-rose-50 text-rose-600 border-rose-100' 
   }; 
 
   return ( 
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6"> 
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-1 group"> 
       <div className="flex items-center justify-between"> 
-        <div> 
-          <p className="text-sm text-gray-500 mb-1">{title}</p> 
-          <p className="text-2xl font-bold text-gray-800">{value}</p> 
+        <div className="flex-1"> 
+          <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">{title}</p> 
+          <p className="text-2xl font-extrabold text-gray-900 group-hover:text-primary-600 transition-colors">
+            {value}
+          </p> 
         </div> 
-        <div className={`p-3 rounded-lg ${colors[color]}`}> 
+        <div className={`p-4 rounded-xl border ${colors[color]} transition-all duration-300 group-hover:scale-110`}> 
           <Icon className="text-2xl" /> 
         </div> 
       </div> 
